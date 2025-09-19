@@ -39,15 +39,4 @@ python -m src.ingest.csv_to_db
 pytest -q
 ```
 
-## Intentional issues for RCA
-
-- `src/transforms/bad_calculation.py`: 
-  - Typo in column name: `frist_name`
-  - Division by zero
-- `dags/user_pipeline_dag.py`:
-  - Reads from `user.csv` instead of `users.csv`
-  - Missing dependency linking `ingest` to `transform`
-- `sql/queries/bad_syntax.sql`:
-  - Multiple syntax errors (`SELEC`, `FRM`, `>==`, empty `GROUP BY`)
-
 Use these to validate error detection, tracing, and remediation suggestions in your RCA tool.
